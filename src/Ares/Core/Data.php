@@ -29,6 +29,8 @@ class Data implements JsonSerializable, Stringable
 
 	public ?string $city_post;
 
+	public ?string $region;
+
 	public string $in;
 
 	public bool $is_person;

@@ -64,6 +64,7 @@ class JsonToDataTransformer
 		$data->city_district = Strings::trimNull($sidlo->nazevCastiObce ?? null);
 		$data->district = Strings::trimNull($sidlo->nazevOkresu ?? null);
 		$data->house_number = Helper::houseNumber((string) ($sidlo->cisloDomovni ?? $sidlo->cisloDoAdresy ?? ''), (string) ($sidlo->cisloOrientacni ?? ''), $sidlo->cisloOrientacniPismeno ?? '');
+		$data->region = Strings::trimNull($sidlo->nazevKraje ?? null);
 
 		return self::isAddressFilled($data);
 	}
@@ -79,7 +80,8 @@ class JsonToDataTransformer
 			|| $data->city_post !== null
 			|| $data->city_district !== null
 			|| $data->district !== null
-			|| $data->house_number !== null;
+			|| $data->house_number !== null
+			|| $data->region !== null;
 	}
 
 }
